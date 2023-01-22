@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>REPLACEME - {% block title %}{% endblock %}</title>  
+  </head>
+  <body>
+  
+     <header>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home_page') }}">Home</a></li>   
+          <li><a href="{{ url_for('release_track_artist_page', release_id=240000) }}">Release Track Artist Example 1</a></li>
+          <li><a href="{{ url_for('release_track_artist_page', release_id=5850736) }}">Release Track Artist Example 2</a></li>
+
+          <li><a href="{{ url_for('search1') }}">Search Release
+          </a></li>
+          <li><a href="{{ url_for('search2') }}">Search Label
+          </a></li>
+          
+        </ul>
+      </nav>
+    </header> 
+  
+    {% block content %}{% endblock %}   
+	
+
+  </body>
+  
+</html>
+
+

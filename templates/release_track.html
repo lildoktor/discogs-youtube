@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+Release Track
+{% endblock %}
+{% block content %}
+<h1>{{release_track[0].title}}</h1>
+
+{% if release_track %}
+    <dl>
+        {% if artist_name %}
+        <dt>Track Artist</dt>
+        <dd>{{artist_name}}</dd>
+        {% endif %}
+
+        {% if release_track[0].title %}
+        <dt>Track Title</dt>
+        <dd>{{release_track[0].title}}</dd>
+        {% endif %}
+
+        {% if release_track[0].sequence and how_many_docs %}
+        <dt>Track Sequence</dt> 
+        <dd>{{release_track[0].sequence}}/{{how_many_docs}}</dd>
+        {% endif %}
+
+        {% if release_track[0].duration %}
+        <dt>Track Duration</dt>
+        <dd>{{release_track[0].duration}}</dd>
+        {% endif %}
+    </dl>
+{% endif %}
+{% endblock %}

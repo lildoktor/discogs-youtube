@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Miraculous - Online Music Store Html Template
+Version: 1.0.0
+Author: Kamleshyadav
+Website: 
+Purchase: 
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>Miraculous - Online Music Store Html Template</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Music">
+    <meta name="keywords" content="">
+    <meta name="author" content="kamleshyadav">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/fonts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/swiper/css/swiper.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/nice_select/nice-select.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/player/volume.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/scroll/jquery.mCustomScrollbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static',filename='images/favicon.png') }}">
+</head>
+<body>
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper ms_profile">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="index.html"><img src="{{ url_for('static',filename='images/logo.png') }}" alt="" class="img-fluid" /></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="index.html"><img src="{{ url_for('static',filename='images/open_logo.png') }}" alt="" class="img-fluid" /></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper">
+                    <ul>
+                        <li><a href="profile.html" class="active" title="Discover">
+                                <span class="nav_icon">
+                                    <span class="icon icon_discover"></span>
+                                </span>
+                                <span class="nav_text">
+                                    discover
+                                </span>
+                            </a>
+                        </li>
+                        <li><a href="search.html" title="Free Music">
+                                <span class="nav_icon">
+                                    <span class="icon icon_music"></span>
+                                </span>
+                                <span class="nav_text">
+                                    free music
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="padder_top80">
+            <!---Header--->
+			<div class="ms_header">
+                <div class="ms_top_left">
+                </div>
+            </div>
+            <!----Edit Profile Wrapper Start---->
+            <div class="ms_profile_wrapper">
+                <div class="ms_content_wrapper ms_cmnt_wrapper">
+                    <div class="ms_heading">
+                        <h1>Update Label</h1>
+                    </div>
+                    <div class="ms_profile_box">
+                        <form method="post" class="ms_pro_form">
+                            <div class="form-group">
+                                <label>Name *</label>
+                                <input name="name" type="text" placeholder="{{label[1]}}" value="{{label[1]}}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Contact Info *</label>
+                                <input name="contact" type="text" placeholder="{{label[2]}}" value="{{label[2]}}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Profile *</label>
+                                <input name="profile" type="text" placeholder="{{label[3]}}" value="{{label[3]}}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Parent Name *</label>
+                                <input name="parent" type="text" placeholder="{{label[4]}}" value="{{label[4]}}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Data Quality *</label>
+                                <input name="data_quality" type="text" placeholder="{{label[5]}}" value="{{label[5]}}" class="form-control">
+                            </div>
+                            <div class="pro-form-btn text-center marger_top15">
+                                <button type="submit" class="ms_btn">Update</a>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="ms_heading">
+                        <p>&nbsp&nbsp&nbsp&nbsp</p>
+                        <p>&nbsp&nbsp&nbsp&nbsp</p>
+                        <h1>Delete Label</h1>
+                    </div>
+                    <div class="ms_profile_box">
+                        <form method="post" class="ms_pro_form">
+                            <label>Yes, I'm sure. Delete</label>
+                            <input name="delete_id" style="display: none;"/>
+
+                            <div class="pro-form-btn text-center marger_top15">
+                                <button type="submit" class="ms_btn">Delete</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper">
+            <!----Copyright---->
+            <div class="col-lg-12">
+                <div class="ms_copyright">
+                    <div class="footer_border"></div>
+                    <p>Copyright &copy; 2022 <a href="#">ITU BLG317E Group 42</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+        
+    
+	<!----Queue Clear Model ---->
+	<div class="ms_clear_modal">
+		<div id="clear_modal" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+						<h1>Are you sure you want to clear your queue?</h1>
+						<div class="clr_modal_btn">
+							<a href="#">clear all</a>
+							<a href="#">cancel</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	
+    <!--Main js file Style-->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/swiper/js/swiper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/jplayer.playlist.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/jquery.jplayer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/audio-player.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/volume.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/nice_select/jquery.nice-select.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/scroll/jquery.mCustomScrollbar.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/custom.js') }}"></script>
+</body>
+</html>

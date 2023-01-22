@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}
+Release Track Artist
+{% endblock %}
+{% block content %}
+<h1>Release Track Artist Table</h1>
+
+{% if release_track_artist %}
+<table class="table is-striped is-fullwidth">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>track_id</th>
+            <th>release_id</th>
+            <th>track_sequence</th>
+            <th>artist_id</th>
+            <th>artist_name</th>
+            <th>extra</th>
+            <th>anv</th>
+            <th>position</th>
+            <th>join_string</th>
+            <th>role</th>
+            <th>tracks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in release_track_artist %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.track_id }}</td>
+            <td>{{ i.release_id }}</td>
+            <td>{{ i.track_sequence }}</td>
+            <td>{{ i.artist_id }}</td>
+            <td>{{ i.artist_name }}</td>
+            <td>{{ i.extra }}</td>
+            <td>{{ i.anv }}</td>
+            <td>{{ i.position }}</td>
+            <td>{{ i.join_string }}</td>
+            <td>{{ i.role }}</td>
+            <td>{{ i.tracks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

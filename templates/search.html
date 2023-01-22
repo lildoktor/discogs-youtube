@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Miraculous - Online Music Store Html Template
+Version: 1.0.0
+Author: Kamleshyadav
+Website: 
+Purchase: 
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+
+<head>
+    <title>Miraculous - Online Music Store Html Template</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Music">
+    <meta name="keywords" content="">
+    <meta name="author" content="kamleshyadav">
+    <meta name="MobileOptimized" content="320">
+    <!--Start Style -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/fonts.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/swiper/css/swiper.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/nice_select/nice-select.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/player/volume.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/plugins/scroll/jquery.mCustomScrollbar.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- Favicon Link -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static',filename='images/favicon.png') }}">
+</head>
+<body>
+    <!----Main Wrapper Start---->
+    <div class="ms_main_wrapper">
+        <!---Side Menu Start--->
+        <div class="ms_sidemenu_wrapper">
+            <div class="ms_nav_close">
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+            <div class="ms_sidemenu_inner">
+                <div class="ms_logo_inner">
+                    <div class="ms_logo">
+                        <a href="index.html"><img src="{{ url_for('static',filename='images/logo.png') }}" alt="" class="img-fluid" /></a>
+                    </div>
+                    <div class="ms_logo_open">
+                        <a href="index.html"><img src="{{ url_for('static',filename='images/open_logo.png') }}" alt="" class="img-fluid" /></a>
+                    </div>
+                </div>
+                <div class="ms_nav_wrapper">
+                    <ul>
+                        <li><a href="index.html" title="Discover">
+                                <span class="nav_icon">
+                                    <span class="icon icon_discover"></span>
+                                </span>
+                                <span class="nav_text">
+                                    discover
+                                </span>
+                            </a>
+                        </li>
+                        <li><a href="search.html" class="active" title="Free Music">
+                                <span class="nav_icon">
+                                    <span class="icon icon_music"></span>
+                                </span>
+                                <span class="nav_text">
+                                    free music
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!---Main Content Start--->
+        <div class="ms_content_wrapper padder_top90">
+            <!---Header--->
+            <div class="ms_header">
+                <div class="ms_top_left">
+                    <div class="ms_top_search">
+                        <div class="col-lg-12">
+                            <div class="ms_heading">
+                                <h1>Search Albums</h1>
+                            </div>
+                        </div>
+                        <form method="post",class="ms_pro_form">    
+                            <input type="text" name="album_name",class="form-control" placeholder="Album name">
+                            <button type="submit" class="ms_btn">Search</button>		
+                        </form>
+                    </div>  
+                    <div class="ms_top_search">
+                        <form method="post",class="ms_pro_form">
+                            <div class="col-lg-12">
+                                <div class="ms_heading">
+                                    <h1>Search Songs</h1>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="text" name="artist_name",class="form-control" placeholder="Artist name">
+                            </div>
+                            <div>
+                                <input type="text" name="song_name",class="form-control" placeholder="Song name">
+                                <button type="submit" class="ms_btn">Search </button>		
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="ms_top_right">
+                    {% if not "id" in session %}
+
+                    {% else %}
+                    <div class="ms_top_btn">
+                        <a href="javascript:;" class="ms_admin_name">{{session["name"]}}<span class="ms_pro_name">{{session["name"][0:2]}}</span></a>
+						<ul class="pro_dropdown_menu">
+							<li><a href="profile.html">Profile</a></li>
+                            <li><a href="/logout"> Logout<a></li>
+						</ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!---Weekly Top 15--->
+            <div class="ms_profile_wrapper">
+                
+                <div class="ms_content_wrapper ms_weekly_wrapper">
+                    <div class="ms_weekly_inner">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ms_heading">
+                                    {% if search_type=='album' %}
+                                    <h1>All Albums</h1>
+                                    {% else %}
+                                    <h1>All Songs</h1>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                {% if data | length != 0 %}
+                                {% for item in data %}
+
+                                <div class="ms_weekly_box">
+
+                                    {% if search_type=='album' %}
+                                    <div class="weekly_left">
+                                        <span class="w_top_no"> 
+                                        {{loop.index}}
+                                        </span>
+                                        <div class="w_top_song">    
+                                            <div class="w_tp_song_name">
+                                                <h3><a href="/album_single.html?id={{ item[0] }}&edit=false">{{ item[1] }}</a></h3>
+                                                <p>{{ item[2] }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <li><a href="https://toolsapi.wattod.com/download?URL={{item[9]}}&downloadFormat=audioandvideo&quality=highest&title=album"><span><i class=""></i></span>Download</a></li>
+                                    {% else %}
+                                    <div class="weekly_left">
+                                        <span class="w_top_no"> 
+                                        {{loop.index}}
+                                        </span>
+                                        <div class="w_top_song">    
+                                            <div class="w_tp_song_name">
+                                                <h3>{{ item[4] }}</h3>
+                                                <p> <b>{{ item[8] }}</b> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <li><a href="https://toolsapi.wattod.com/download?URL={{item[6]}}&downloadFormat=audioandvideo&quality=highest&title=song"><span><i class=""></i></span>Download</a></li>
+                                    <!-- <li><a href="https://toolsapi.wattod.com/download?URL={{item[6]}}&downloadFormat=audioandvideo&quality=highest&title={{item[4]}}"><span><i class=""></i></span>Download</a></li> -->
+                                    {% endif %}
+                                </div>
+                                <div class="ms_divider"></div>
+                                {% endfor %}
+                                {% else %}
+                                <div id="result">No search results.</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----Main div close---->
+        </div>
+        <!----Footer Start---->
+        <div class="ms_footer_wrapper">
+            <!----Copyright---->
+            <div class="col-lg-12">
+                <div class="ms_copyright">
+                    <div class="footer_border"></div>
+                    <p>Copyright &copy; 2022 <a href="#">ITU BLG317E Project: Group 42
+                    </a>. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----Register Modal Start---->
+    <!-- Modal -->
+	<!----Queue Clear Model ---->
+	<div class="ms_clear_modal">
+		<div id="clear_modal" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+						<h1>Are you sure you want to clear your queue?</h1>
+						<div class="clr_modal_btn">
+							<a href="#">clear all</a>
+							<a href="#">cancel</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<!----Queue Save Modal---->
+	<div class="ms_save_modal">
+		<div id="save_modal" class="modal  centered-modal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">
+						<i class="fa_icon form_close"></i>
+					</button>
+                    <div class="modal-body">
+						<h1>Log in to start sharing your music!</h1>
+						<div class="save_modal_btn">
+							<a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i> continue with google </a>
+							<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> continue with facebook</a>
+						</div>
+						<div class="ms_save_email">
+							<h3>or use your email</h3>
+							<div class="save_input_group">
+								<input type="text" placeholder="Enter Your Name" class="form-control">
+							</div>
+							<div class="save_input_group">
+                                <input type="password" placeholder="Enter Password" class="form-control">
+                            </div>
+							<button class="save_btn">Log in</button>
+						</div>
+						<div class="ms_dnt_have">
+						    <span>Dont't have an account ?</span>
+							<a href="javascript:;" class="hideCurrentModel" data-toggle="modal" data-target="#myModal">Register Now</a>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>	
+    <!--Main js file Style-->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/swiper/js/swiper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/jplayer.playlist.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/jquery.jplayer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/audio-player.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/player/volume.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/nice_select/jquery.nice-select.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/plugins/scroll/jquery.mCustomScrollbar.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/custom.js') }}"></script>
+</body>
+</html>

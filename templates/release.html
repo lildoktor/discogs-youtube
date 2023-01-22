@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}
+Release Track
+{% endblock %}
+{% block content %}
+<h1>{{release.title}}</h1>
+
+{% if release %}
+
+    <dl>
+        {% if release.title %}
+        <dt>Release Title</dt>
+        <dd>{{release.title}}</dd>
+        {% endif %}
+        
+        {% if release_genre %}
+        <dt>Genre</dt>
+        <dd>{{release_genre}}</dd>
+        {% endif %}
+
+
+    </dl>
+{% endif %}
+{% endblock %}
+
